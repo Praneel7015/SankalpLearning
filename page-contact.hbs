@@ -1,0 +1,152 @@
+{{!< default}}
+
+{{#post}}
+
+{{!-- ==================== HERO ==================== --}}
+<section class="page-hero page-hero-contact">
+    <div class="container">
+        <div class="page-hero-inner">
+            <span class="eyebrow">{{> "icons/mail"}} Contact Us</span>
+            <h1 class="page-hero-title">
+                Let's <span class="highlight">Connect</span>
+            </h1>
+            <p class="page-hero-lead">
+                Have questions about our programs? Want to enroll? We'd love to hear from you. Reach out through any of the channels below.
+            </p>
+        </div>
+    </div>
+    <div class="page-hero-shape"></div>
+</section>
+
+
+{{!-- ==================== CONTACT CARDS ==================== --}}
+<section class="section ct-cards-section">
+    <div class="container">
+        <div class="ct-cards-grid">
+            {{#if @custom.phone_number}}
+            <div class="ct-card fade-in">
+                <div class="ct-card-icon ct-icon-teal">{{> "icons/phone"}}</div>
+                <h3>Call Us</h3>
+                <p>Speak directly with our team.</p>
+                <a class="ct-card-link" href="tel:{{@custom.phone_number}}">{{@custom.phone_number}}</a>
+            </div>
+            {{/if}}
+
+            {{#if @custom.email_address}}
+            <div class="ct-card fade-in fd1">
+                <div class="ct-card-icon ct-icon-amber">{{> "icons/mail"}}</div>
+                <h3>Email Us</h3>
+                <p>Send us your queries anytime.</p>
+                <a class="ct-card-link" href="mailto:{{@custom.email_address}}">{{@custom.email_address}}</a>
+            </div>
+            {{/if}}
+
+            {{#if @custom.phone_number}}
+            <div class="ct-card fade-in fd2">
+                <div class="ct-card-icon ct-icon-green">{{> "icons/message"}}</div>
+                <h3>WhatsApp</h3>
+                <p>Quick chat for instant help.</p>
+                <a class="ct-card-link" href="https://wa.me/{{@custom.phone_number}}" target="_blank" rel="noopener">Chat on WhatsApp</a>
+            </div>
+            {{/if}}
+
+            {{#if @custom.address_text}}
+            <div class="ct-card fade-in fd3">
+                <div class="ct-card-icon ct-icon-coral">{{> "icons/map-pin"}}</div>
+                <h3>Visit Us</h3>
+                <p>Come meet us in person.</p>
+                <span class="ct-card-address">{{@custom.address_text}}</span>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</section>
+
+
+{{!-- ==================== MAP + DETAILS ==================== --}}
+<section class="section ct-map-section">
+    <div class="container">
+        <div class="ct-map-grid">
+            <div class="ct-map-embed fade-in">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.5!2d77.583!3d12.935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15cf1bfbe1a1%3A0x0!2zMTLCsDU2JzA2LjAiTiA3N8KwMzQnNTguOCJF!5e0!3m2!1sen!2sin!4v1700000000000"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Sankalp Learning Solutions Location">
+                </iframe>
+            </div>
+            <div class="ct-details fade-in fd2">
+                <h2>Get in Touch</h2>
+                <p class="ct-details-lead">Whether you're a student, parent, teacher, or supporter — we're here to help you on the journey to educational excellence.</p>
+
+                <div class="ct-detail-item">
+                    <div class="ct-detail-icon">{{> "icons/map-pin"}}</div>
+                    <div>
+                        <h4>Our Office</h4>
+                        <p>276/D, 37th Cross, Jayanagar 8th Block,<br>Bengaluru - 560070, Karnataka</p>
+                    </div>
+                </div>
+
+                <div class="ct-detail-item">
+                    <div class="ct-detail-icon">{{> "icons/phone"}}</div>
+                    <div>
+                        <h4>Phone</h4>
+                        {{#if @custom.phone_number}}
+                            <p><a href="tel:{{@custom.phone_number}}">{{@custom.phone_number}}</a></p>
+                        {{/if}}
+                    </div>
+                </div>
+
+                <div class="ct-detail-item">
+                    <div class="ct-detail-icon">{{> "icons/mail"}}</div>
+                    <div>
+                        <h4>Email</h4>
+                        {{#if @custom.email_address}}
+                            <p><a href="mailto:{{@custom.email_address}}">{{@custom.email_address}}</a></p>
+                        {{/if}}
+                    </div>
+                </div>
+
+                <div class="ct-detail-item">
+                    <div class="ct-detail-icon">{{> "icons/clock"}}</div>
+                    <div>
+                        <h4>Support Hours</h4>
+                        <p>Monday – Saturday: 10 AM to 6 PM<br>Sunday: Closed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{{!-- ==================== EDITOR CONTENT (if any) ==================== --}}
+{{#if @page.show_title_and_feature_image}}
+    <section class="section" style="background:var(--color-bg);padding-top:2rem;">
+        <div class="container">
+            <div class="gh-content page-content">
+                {{content}}
+            </div>
+        </div>
+    </section>
+{{/if}}
+
+
+{{!-- ==================== CTA ==================== --}}
+<section class="section" style="padding-bottom:5rem;">
+    <div class="cta-banner fade-in">
+        <h2>Ready to Start Your Learning Journey?</h2>
+        <p>Quality education for every student in Karnataka. Reach out today and take the first step.</p>
+        <div>
+            {{#if @custom.phone_number}}
+                <a class="button button-accent" href="tel:{{@custom.phone_number}}">Call Now</a>
+            {{/if}}
+            {{#if @custom.phone_number}}
+                <a class="button button-light" href="https://wa.me/{{@custom.phone_number}}" target="_blank" rel="noopener" style="margin-left:0.5rem;">WhatsApp</a>
+            {{/if}}
+        </div>
+    </div>
+</section>
+
+{{/post}}

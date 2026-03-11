@@ -1,0 +1,283 @@
+{{!< default}}
+
+{{#post}}
+
+{{!-- ==================== TEAM HERO ==================== --}}
+<section class="page-hero page-hero-team">
+    <div class="container">
+        <div class="page-hero-inner">
+            <span class="eyebrow">{{> "icons/users"}} Our Team</span>
+            <h1 class="page-hero-title">
+                The People Behind<br>
+                <span class="highlight">Sankalp's Success</span>
+            </h1>
+            <p class="page-hero-lead">
+                A dedicated team of educators, advisors, and digital experts committed to transforming education for every student in Karnataka.
+            </p>
+        </div>
+    </div>
+    <div class="page-hero-shape"></div>
+</section>
+
+
+{{!-- ==================== FOUNDER (dynamic) ==================== --}}
+{{#get "posts" filter="tag:[faculty,ex-faculty]+tag:founder" include="tags" limit="all" as |founders|}}
+{{#if founders}}
+<section class="section pg-team-founder-section">
+    <div class="container">
+        {{#foreach founders}}
+        <div class="pg-team-founder fade-in">
+            <div class="pg-team-founder-avatar">
+                {{#if feature_image}}
+                    <img src="{{feature_image}}" alt="{{title}}" />
+                {{else}}
+                    {{> "icons/avatar"}}
+                {{/if}}
+            </div>
+            <div class="pg-team-founder-info">
+                {{#has tag="ex-faculty"}}
+                    <span class="pg-team-role-tag tag-gold">Ex-Faculty</span>
+                {{else}}
+                    <span class="pg-team-role-tag tag-gold">Founder &amp; CEO</span>
+                {{/has}}
+                <h2>{{title}}</h2>
+                {{#if custom_excerpt}}
+                    <p>{{custom_excerpt}}</p>
+                {{else}}
+                    <p>{{excerpt words="50"}}</p>
+                {{/if}}
+                <div class="pg-team-founder-stats">
+                    <div class="pg-team-founder-stat">
+                        <span class="num">5+</span>
+                        <span class="lbl">Years Leading</span>
+                    </div>
+                    <div class="pg-team-founder-stat">
+                        <span class="num">{{#if @custom.students}}{{@custom.students}}+{{else}}6,00,000+{{/if}}</span>
+                        <span class="lbl">Students Impacted</span>
+                    </div>
+                    <div class="pg-team-founder-stat">
+                        <span class="num">4,548+</span>
+                        <span class="lbl">Schools Reached</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/foreach}}
+    </div>
+</section>
+{{/if}}
+{{/get}}
+
+
+{{!-- ==================== LEADERSHIP (dynamic) ==================== --}}
+{{#get "posts" filter="tag:academic-head,tag:academic-advisor" include="tags" limit="all" as |leaders|}}
+{{#if leaders}}
+<section class="section pg-team-group-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="eyebrow">{{> "icons/star"}} Leadership</span>
+            <h2>Academic Leadership</h2>
+            <p>Guiding our curriculum, teaching standards, and academic strategy.</p>
+        </div>
+
+        <div class="pg-team-grid pg-team-grid-auto fade-in">
+            {{#foreach leaders}}
+            <a href="{{url}}" class="pg-team-card-link">
+                <div class="pg-team-card">
+                    <div class="pg-team-avatar">
+                        {{#if feature_image}}
+                            <img src="{{feature_image}}" alt="{{title}}" />
+                        {{else}}
+                            {{> "icons/avatar"}}
+                        {{/if}}
+                    </div>
+                    <h4>{{title}}</h4>
+                    {{#has tag="ex-faculty"}}
+                        <span class="pg-team-role-tag tag-teal">Ex-Faculty</span>
+                    {{else}}
+                        {{#has tag="academic-head"}}
+                            <span class="pg-team-role-tag tag-teal">Academic Head</span>
+                        {{else}}
+                            {{#has tag="academic-advisor"}}
+                                <span class="pg-team-role-tag tag-teal">Academic Advisor</span>
+                            {{/has}}
+                        {{/has}}
+                    {{/has}}
+                    {{#if custom_excerpt}}
+                        <p class="pg-team-desc">{{custom_excerpt}}</p>
+                    {{/if}}
+                </div>
+            </a>
+            {{/foreach}}
+        </div>
+    </div>
+</section>
+{{/if}}
+{{/get}}
+
+
+{{!-- ==================== SUBJECT MATTER EXPERTS (dynamic) ==================== --}}
+{{#get "posts" filter="tag:[faculty,ex-faculty]+tag:[science,mathematics,english,social-studies]" limit="1" as |any_faculty|}}
+{{#if any_faculty}}
+<section class="section pg-team-faculty-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="eyebrow">{{> "icons/graduation"}} Faculty</span>
+            <h2>Subject Matter Experts</h2>
+            <p>Experienced educators delivering excellence in every subject.</p>
+        </div>
+
+        {{!-- Science Faculty --}}
+        {{#get "posts" filter="tag:[faculty,ex-faculty]+tag:science" include="tags" limit="all" as |science|}}
+        {{#if science}}
+        <h3 class="pg-team-subject-title fade-in">{{> "icons/lightbulb"}} Science</h3>
+        <div class="pg-team-grid pg-team-grid-auto fade-in">
+            {{#foreach science}}
+            <a href="{{url}}" class="pg-team-card-link">
+                <div class="pg-team-card">
+                    <div class="pg-team-avatar">
+                        {{#if feature_image}}
+                            <img src="{{feature_image}}" alt="{{title}}" />
+                        {{else}}
+                            {{> "icons/avatar"}}
+                        {{/if}}
+                    </div>
+                    <h4>{{title}}</h4>
+                    {{#has tag="ex-faculty"}}
+                        <span class="pg-team-role-tag tag-teal">Ex-Faculty</span>
+                    {{else}}
+                        <span class="pg-team-role-tag tag-teal">Faculty</span>
+                    {{/has}}
+                    {{#if custom_excerpt}}
+                        <span class="pg-team-subject">{{custom_excerpt}}</span>
+                    {{/if}}
+                </div>
+            </a>
+            {{/foreach}}
+        </div>
+        {{/if}}
+        {{/get}}
+
+        {{!-- Mathematics Faculty --}}
+        {{#get "posts" filter="tag:[faculty,ex-faculty]+tag:mathematics" include="tags" limit="all" as |maths|}}
+        {{#if maths}}
+        <h3 class="pg-team-subject-title fade-in">{{> "icons/target"}} Mathematics</h3>
+        <div class="pg-team-grid pg-team-grid-auto fade-in">
+            {{#foreach maths}}
+            <a href="{{url}}" class="pg-team-card-link">
+                <div class="pg-team-card">
+                    <div class="pg-team-avatar">
+                        {{#if feature_image}}
+                            <img src="{{feature_image}}" alt="{{title}}" />
+                        {{else}}
+                            {{> "icons/avatar"}}
+                        {{/if}}
+                    </div>
+                    <h4>{{title}}</h4>
+                    {{#has tag="ex-faculty"}}
+                        <span class="pg-team-role-tag tag-teal">Ex-Faculty</span>
+                    {{else}}
+                        <span class="pg-team-role-tag tag-teal">Faculty</span>
+                    {{/has}}
+                    {{#if custom_excerpt}}
+                        <span class="pg-team-subject">{{custom_excerpt}}</span>
+                    {{/if}}
+                </div>
+            </a>
+            {{/foreach}}
+        </div>
+        {{/if}}
+        {{/get}}
+
+        {{!-- English & Social Studies Faculty --}}
+        {{#get "posts" filter="tag:[faculty,ex-faculty]+tag:[english,social-studies]" include="tags" limit="all" as |eng_social|}}
+        {{#if eng_social}}
+        <h3 class="pg-team-subject-title fade-in">{{> "icons/book"}} English &amp; Social Studies</h3>
+        <div class="pg-team-grid pg-team-grid-auto fade-in">
+            {{#foreach eng_social}}
+            <a href="{{url}}" class="pg-team-card-link">
+                <div class="pg-team-card">
+                    <div class="pg-team-avatar">
+                        {{#if feature_image}}
+                            <img src="{{feature_image}}" alt="{{title}}" />
+                        {{else}}
+                            {{> "icons/avatar"}}
+                        {{/if}}
+                    </div>
+                    <h4>{{title}}</h4>
+                    {{#has tag="ex-faculty"}}
+                        <span class="pg-team-role-tag tag-teal">Ex-Faculty</span>
+                    {{else}}
+                        <span class="pg-team-role-tag tag-teal">Faculty</span>
+                    {{/has}}
+                    {{#if custom_excerpt}}
+                        <span class="pg-team-subject">{{custom_excerpt}}</span>
+                    {{/if}}
+                </div>
+            </a>
+            {{/foreach}}
+        </div>
+        {{/if}}
+        {{/get}}
+    </div>
+</section>
+{{/if}}
+{{/get}}
+
+
+{{!-- ==================== DIGITAL TEAM (dynamic) ==================== --}}
+{{#get "posts" filter="tag:[faculty,ex-faculty]+tag:digital-expert" include="tags" limit="all" as |digital|}}
+{{#if digital}}
+<section class="section pg-team-group-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="eyebrow">{{> "icons/monitor"}} Digital Expertise</span>
+            <h2>Digital Team</h2>
+            <p>Powering our online platform and digital learning experience.</p>
+        </div>
+
+        <div class="pg-team-grid pg-team-grid-auto fade-in">
+            {{#foreach digital}}
+            <a href="{{url}}" class="pg-team-card-link">
+                <div class="pg-team-card">
+                    <div class="pg-team-avatar">
+                        {{#if feature_image}}
+                            <img src="{{feature_image}}" alt="{{title}}" />
+                        {{else}}
+                            {{> "icons/avatar"}}
+                        {{/if}}
+                    </div>
+                    <h4>{{title}}</h4>
+                    {{#has tag="ex-faculty"}}
+                        <span class="pg-team-role-tag tag-purple">Ex-Faculty</span>
+                    {{else}}
+                        <span class="pg-team-role-tag tag-purple">Digital Expert</span>
+                    {{/has}}
+                    {{#if custom_excerpt}}
+                        <p class="pg-team-desc">{{custom_excerpt}}</p>
+                    {{/if}}
+                </div>
+            </a>
+            {{/foreach}}
+        </div>
+    </div>
+</section>
+{{/if}}
+{{/get}}
+
+
+{{!-- ==================== CTA ==================== --}}
+<section class="section" style="padding-bottom:5rem;">
+    <div class="cta-banner fade-in">
+        <h2>Join Our Mission</h2>
+        <p>Be part of the team transforming education for lakhs of students across Karnataka.</p>
+        <div>
+            {{#if @custom.email_address}}
+                <a class="button button-accent" href="mailto:{{@custom.email_address}}">Email Us</a>
+            {{/if}}
+            <a class="button button-light" href="/contact/" style="margin-left:0.5rem;">Contact Us</a>
+        </div>
+    </div>
+</section>
+
+{{/post}}

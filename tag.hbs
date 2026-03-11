@@ -1,0 +1,34 @@
+{{!< default}}
+
+<section class="article" style="padding-top:5rem;">
+    <div class="container">
+        <header class="article-header">
+            <span class="eyebrow">{{> "icons/book"}} Tag</span>
+            <h1 class="article-title">{{name}}</h1>
+            {{#if description}}
+                <p class="article-excerpt">{{description}}</p>
+            {{/if}}
+        </header>
+
+        <div class="post-grid" style="margin-top:2rem;">
+            {{#foreach posts}}
+            <article class="post-card">
+                <a href="{{url}}">
+                    {{#if feature_image}}
+                        <img src="{{feature_image}}" alt="{{title}}" loading="lazy">
+                    {{/if}}
+                    <div class="post-card-tags">
+                        {{#primary_tag}}
+                            <span class="post-card-primary-tag">{{name}}</span>
+                        {{/primary_tag}}
+                    </div>
+                    <h3>{{title}}</h3>
+                    <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMM YYYY"}}</time>
+                </a>
+            </article>
+            {{/foreach}}
+        </div>
+
+        {{pagination}}
+    </div>
+</section>

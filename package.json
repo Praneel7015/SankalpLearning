@@ -1,0 +1,65 @@
+{
+    "name": "sankalp-learning-theme",
+    "description": "A modern, vibrant Ghost theme for Sankalp Learning Solutions NGO",
+    "version": "2.0.0",
+    "private": true,
+    "keywords": ["ghost-theme"],
+    "author": {
+        "name": "Sankalp Learning",
+        "email": "sankalplearningceo@gmail.com"
+    },
+    "card_assets": true,
+    "config": {
+        "posts_per_page": 12,
+        "image_sizes": {
+            "xxs": { "width": 30 },
+            "xs": { "width": 100 },
+            "s": { "width": 300 },
+            "m": { "width": 600 },
+            "l": { "width": 1000 },
+            "xl": { "width": 2000 }
+        },
+        "custom": {
+            "phone_number": {
+                "type": "text",
+                "default": "+918867548202"
+            },
+            "email_address": {
+                "type": "text",
+                "default": "sankalplearningceo@gmail.com"
+            },
+            "students": {
+                "type": "text",
+                "default": "600000"
+            },
+            "hero_title": {
+                "type": "text",
+                "default": "Empowering Every Student to Succeed"
+            },
+            "hero_description": {
+                "type": "text",
+                "default": "Bridging the educational divide for Karnataka's government school students with high-quality, affordable online coaching since 2021."
+            },
+            "hero_collage_image": {
+                "type": "image",
+                "default": ""
+            },
+            "hero_bg_opacity": {
+                "type": "text",
+                "default": "0.67"
+            },
+            "hero_bg_overlay_opacity": {
+                "type": "text",
+                "default": "0.20"
+            },
+            "hero_image_alt": {
+                "type": "text",
+                "default": "Sankalp Learning"
+            },
+            "address_text": {
+                "type": "text",
+                "default": "276/D, 37th Cross, Jayanagar 8th Block, Bengaluru - 560070"
+            }
+        }
+    }
+}

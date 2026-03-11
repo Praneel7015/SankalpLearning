@@ -1,0 +1,66 @@
+{{!< default}}
+
+{{#post}}
+
+{{!-- ==================== POSTS HERO ==================== --}}
+<section class="about-hero">
+    <div class="about-hero-bg"></div>
+    <div class="container">
+        <div class="about-hero-inner">
+            <span class="eyebrow">{{> "icons/book"}} Blog</span>
+            <h1 class="about-hero-title">
+                Our Latest<br>
+                <span class="highlight">Articles &amp; Updates</span>
+            </h1>
+            <p class="about-hero-lead">
+                Stay informed with the latest news, tips, and stories from Sankalp Learning.
+            </p>
+        </div>
+    </div>
+    <div class="about-hero-shape"></div>
+</section>
+
+
+{{!-- ==================== POST LISTING ==================== --}}
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <span class="eyebrow">{{> "icons/trending-up"}} Recent</span>
+            <h2>Latest Posts</h2>
+            <p>Explore articles from our educators and team</p>
+        </div>
+
+        {{#get "posts" limit="12" filter="tag:-[gallery, faculty, ex-faculty]" include="tags,authors"}}
+            {{#if posts}}
+                <div class="post-grid" style="margin-top: 2rem;">
+                    {{#foreach posts}}
+                        {{> "post-card"}}
+                    {{/foreach}}
+                </div>
+            {{else}}
+                <div class="posts-empty fade-in">
+                    <div class="posts-empty-icon">{{> "icons/book"}}</div>
+                    <h3>No Posts Yet</h3>
+                    <p>We haven't published any articles yet. Check back soon!</p>
+                </div>
+            {{/if}}
+        {{/get}}
+    </div>
+</section>
+{{!-- we didnt want to do this but check this out:- https://www.youtube.com/watch?v=dQw4w9WgXcQ --}}
+
+{{!-- ==================== CTA ==================== --}}
+<section class="section" style="padding-bottom: 5rem;">
+    <div class="cta-banner fade-in">
+        <h2>Want to Stay Updated?</h2>
+        <p>Follow our journey and never miss an update from Sankalp Learning.</p>
+        <div>
+            {{#if @custom.phone_number}}
+                <a class="button button-accent" href="tel:{{@custom.phone_number}}">Call Now</a>
+            {{/if}}
+            <a class="button button-light" href="/about/" style="margin-left: 0.5rem;">About Us</a>
+        </div>
+    </div>
+</section>
+
+{{/post}}

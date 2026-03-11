@@ -1,0 +1,65 @@
+<footer class="site-footer" role="contentinfo">
+    <div class="container">
+        <div class="footer-grid">
+            {{!-- Brand --}}
+            <div class="footer-brand">
+                <a class="logo" href="{{@site.url}}">
+                    {{#if @site.logo}}
+                        <img src="{{@site.logo}}" alt="{{@site.title}}" style="max-height:40px;">
+                    {{/if}}
+                    <span class="logo-text">
+                        Sankalp
+                        <small>Learning Solutions</small>
+                    </span>
+                </a>
+                <p class="footer-desc">India's No.1 affordable online education coaching institute. Empowering Karnataka's government school students since 2021.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="YouTube">YT</a>
+                    <a href="#" aria-label="Instagram">IG</a>
+                    <a href="#" aria-label="Twitter">X</a>
+                </div>
+            </div>
+
+            {{!-- Quick Links --}}
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                {{navigation}}
+            </div>
+
+            {{!-- Programs --}}
+            <div class="footer-links">
+                <h3>Programs</h3>
+                <ul>
+                    <li><a href="/programs/">SSLC Board Prep</a></li>
+                    <li><a href="/programs/">KCET Foundation</a></li>
+                    <li><a href="/programs/">PU Board 11 &amp; 12</a></li>
+                    <li><a href="/programs/">NMMS Scholarship</a></li>
+                </ul>
+            </div>
+
+            {{!-- Contact --}}
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <ul>
+                    {{#if @custom.address_text}}
+                        <li>{{@custom.address_text}}</li>
+                    {{/if}}
+                    {{#if @custom.phone_number}}
+                        <li><a href="tel:{{@custom.phone_number}}">{{@custom.phone_number}}</a></li>
+                    {{/if}}
+                    {{#if @custom.email_address}}
+                        <li><a href="mailto:{{@custom.email_address}}">{{@custom.email_address}}</a></li>
+                    {{/if}}
+                    {{#if @custom.phone_number}}
+                        <li><a href="https://wa.me/{{@custom.phone_number}}" target="_blank" rel="noopener">WhatsApp</a></li>
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>&copy; {{date format="YYYY"}} {{@site.title}}. All rights reserved.</span>
+            <span>Empowering Education Across Karnataka </span>
+        </div>
+    </div>
+</footer>

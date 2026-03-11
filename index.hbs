@@ -1,0 +1,399 @@
+{{!< default}}
+
+{{!-- ==================== HERO ==================== --}}
+<section class="hero" id="home">
+    <div class="container hero-grid{{#if @custom.hero_collage_image}} hero-grid-has-bg{{/if}}"
+         {{#if @custom.hero_collage_image}}style="--hero-bg-image: url('{{img_url @custom.hero_collage_image size="xl"}}'); --hero-bg-opacity: {{#if @custom.hero_bg_opacity}}{{@custom.hero_bg_opacity}}{{else}}0.67{{/if}}; --hero-bg-overlay-opacity: {{#if @custom.hero_bg_overlay_opacity}}{{@custom.hero_bg_overlay_opacity}}{{else}}0.45{{/if}};"{{/if}}>
+        <div class="hero-content">
+
+            <h1>
+                {{#if @custom.hero_title}}
+                    {{@custom.hero_title}}
+                {{else}}
+                    Empowering <span class="highlight">Every Student</span> to Succeed
+                {{/if}}
+            </h1>
+
+            <p class="hero-lead">
+                {{#if @custom.hero_description}}{{@custom.hero_description}}{{else}}Bridging the educational divide for Karnataka's school students with high-quality education since 2021.{{/if}}
+            </p>
+
+            <div class="hero-actions">
+                <a class="button button-primary" href="/programs/">Explore Our Programs</a>
+                <a class="button button-secondary" href="/about/">About Us</a>
+            </div>
+
+            <div class="hero-stats-row">
+                <div class="hero-stat">
+                    <div class="number"><span data-count="{{#if @custom.students}}{{@custom.students}}{{else}}600000{{/if}}">0</span><span class="accent">+</span></div>
+                    <div class="label">Students Taught</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="number"><span data-count="31">0</span></div>
+                    <div class="label">Districts Covered</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="number"><span data-count="5">0</span><span class="accent">+</span></div>
+                    <div class="label">Glorious Years</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-media" style="position:relative;">
+            {{#if @site.cover_image}}
+                <img src="{{@site.cover_image}}" alt="{{#if @custom.hero_image_alt}}{{@custom.hero_image_alt}}{{else}}Sankalp Learning{{/if}}" />
+            {{else}}
+                <img src="{{asset "images/collage.png"}}" alt="{{#if @custom.hero_image_alt}}{{@custom.hero_image_alt}}{{else}}Sankalp Learning{{/if}}" />
+            {{/if}}
+        </div>
+    </div>
+</section>
+
+
+{{!-- ==================== IMPACT COUNTER STRIP ==================== --}}
+<section class="impact-strip">
+    <div class="container">
+        <div class="impact-grid">
+            <div class="impact-item fade-in">
+                <div class="impact-number"><span data-count="{{#if @custom.students}}{{@custom.students}}{{else}}600000{{/if}}">0</span><span class="accent">+</span></div>
+                <div class="impact-label">Students Taught</div>
+            </div>
+            <div class="impact-item fade-in fade-in-d1">
+                <div class="impact-number"><span data-count="300">0</span><span class="accent">+</span></div>
+                <div class="impact-label">Top 10 State Rankers</div>
+            </div>
+            <div class="impact-item fade-in fade-in-d2">
+                <div class="impact-number"><span data-count="698">0</span><span class="accent">+</span></div>
+                <div class="impact-label">Students Above 90%</div>
+            </div>
+            <div class="impact-item fade-in fade-in-d3">
+                <div class="impact-number"><span data-count="4548">0</span><span class="accent">+</span></div>
+                <div class="impact-label">Schools Reached</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{{!-- ==================== ABOUT ==================== --}}
+<section class="about-section section" id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-image fade-in">
+                <div class="about-image-main">
+                    {{#get "posts" filter="tag:gallery" limit="1"}}
+                        {{#foreach posts}}
+                            {{#if feature_image}}
+                                <img src="{{feature_image}}" alt="Sankalp Learning classroom">
+                            {{/if}}
+                        {{/foreach}}
+                    {{/get}}
+                </div>
+                <div class="about-accent-box">
+                    <div class="big-num">5+</div>
+                    <div class="caption">Years of Impact</div>
+                </div>
+            </div>
+
+            <div class="about-content fade-in fade-in-d2">
+                <span class="eyebrow">{{> "icons/book"}} About Sankalp</span>
+                <h2>Who We Are</h2>
+                <p class="lead-text">
+                    Established in 2021 by Prasanna Karthik S, With a team of skilled and committed educators, we strive for the betterment of students to help them achieve their academic goals.
+                </p>
+
+                <div class="about-features">
+                    <div class="about-feature">
+                        <div class="about-feature-icon">{{> "icons/check"}}</div>
+                        <div>
+                            <h4>Education for All</h4>
+                            <p>Quality education accessible to every student</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">{{> "icons/monitor"}}</div>
+                        <div>
+                            <h4>Online Classes</h4>
+                            <p>Comprehensive digital learning</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">{{> "icons/trophy"}}</div>
+                        <div>
+                            <h4>Proven Results</h4>
+                            <p>State ranks year after year</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">{{> "icons/heart"}}</div>
+                        <div>
+                            <h4>Govt Schools Focus</h4>
+                            <p>Empowering underprivileged students</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a class="button button-primary" href="/about/">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{{!-- ==================== MISSION / VISION ==================== --}}
+<section class="mission-section section" id="mission">
+    <div class="container">
+        <div class="section-header">
+            <span class="eyebrow">{{> "icons/star"}} Our Purpose</span>
+            <h2>Mission &amp; Vision</h2>
+            <p>Driven by a commitment to transform education for every student in Karnataka.</p>
+        </div>
+
+        <div class="mission-grid">
+            <div class="mission-card card-mission fade-in">
+                <div class="card-icon">{{> "icons/target"}}</div>
+                <h3>Our Mission</h3>
+                <p>To bridge the educational divide by providing high-quality, affordable education to Karnataka government high school students. We are dedicated to empowering students from diverse backgrounds by offering comprehensive online classes for grades 8th, 9th, and 10th.</p>
+            </div>
+            <div class="mission-card card-vision fade-in fade-in-d2">
+                <div class="card-icon">{{> "icons/lightbulb"}}</div>
+                <h3>Our Vision</h3>
+                <p>To transform the educational landscape by ensuring every student, regardless of socio-economic background, has access to exceptional learning opportunities. We aspire to be the leading platform that bridges gaps in education and fosters a culture of academic excellence.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{{!-- ==================== PROGRAMS ==================== --}}
+<section class="programs-section section" id="programs">
+    <div class="container">
+        <div class="section-header">
+            <span class="eyebrow">{{> "icons/book"}} Our Programs</span>
+            <h2>What We Offer</h2>
+            <p>Comprehensive coaching programs designed for government school students across Karnataka.</p>
+        </div>
+
+        <div class="programs-grid">
+            <div class="program-card fade-in">
+                <div class="program-icon">{{> "icons/book"}}</div>
+                <span class="program-badge active">Current</span>
+                <h3>Class 10th SSLC Board</h3>
+                <p>Complete board curriculum preparation with expert faculty for 10th standard government school students.</p>
+            </div>
+            <div class="program-card fade-in fade-in-d1">
+                <div class="program-icon">{{> "icons/trophy"}}</div>
+                <span class="program-badge active">Current</span>
+                <h3>KCET Foundation (8th–10th)</h3>
+                <p>Early preparation for Karnataka CET with strong foundation in Science and Mathematics from 8th grade.</p>
+            </div>
+            <div class="program-card fade-in fade-in-d2">
+                <div class="program-icon">{{> "icons/rocket"}}</div>
+                <span class="program-badge active">Current</span>
+                <h3>PU Board &amp; KCET (11th–12th)</h3>
+                <p>PU Board preparation combined with KCET coaching for higher secondary students.</p>
+            </div>
+            <div class="program-card fade-in fade-in-d1">
+                <div class="program-icon">{{> "icons/shield"}}</div>
+                <span class="program-badge active">Current</span>
+                <h3>Foundation Course (6th–7th)</h3>
+                <p>Basic mathematics and English foundation course to build strong fundamentals early on.</p>
+            </div>
+            <div class="program-card fade-in fade-in-d2">
+                <div class="program-icon">{{> "icons/star"}}</div>
+                <span class="program-badge past">Previous</span>
+                <h3>NMMS Scholarship (Class 8)</h3>
+                <p>National Means-cum-Merit Scholarship preparation for deserving Class 8 students.</p>
+            </div>
+            <div class="program-card fade-in fade-in-d3">
+                <div class="program-icon">{{> "icons/users"}}</div>
+                <span class="program-badge past">Previous</span>
+                <h3>KCET for 3,000 Students</h3>
+                <p>Large-scale KCET coaching program that successfully trained 3,000 students.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{{!-- ==================== ACHIEVEMENTS TIMELINE ==================== --}}
+<section class="achievements-section section" id="achievements">
+    <div class="container">
+        <div class="section-header">
+            <span class="eyebrow">{{> "icons/trophy"}} Our Achievements</span>
+            <h2>The Success Story</h2>
+            <p>The success of our students defines who we are. All from government schools and colleges.</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2021</div>
+                    <p><strong>KCET – 9th State Rank</strong><br>Our journey began with a remarkable state rank in the very first year.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2022</div>
+                    <p><strong>SSLC – 8th &amp; 9th State Ranks</strong><br>PUC – 31st Rank. Students began excelling across multiple exams.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2023</div>
+                    <p><strong>8th State Rank</strong><br>Students admitted to IIT Roorkee, NIT, and KSSI Medical College – our first medical student!</p>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2024</div>
+                    <p><strong>PUC - 8th, 9th &amp; 12th State Ranks</strong><br>698 students scored above 90%. A landmark year of excellence.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2025</div>
+                    <p><strong>1st State Rank in SSLC!</strong><br>300+ students in top 10 ranks. PUC State Ranks: 8th, 9th &amp; 10th. Over 1 lakh students coached.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{!-- ==================== GALLERY ==================== --}}
+<section class="image-grid-section" id="gallery">
+    <div class="container">
+        <div class="section-header left-align">
+            <div>
+                <span class="eyebrow">{{> "icons/camera"}} Gallery</span>
+                <h2>Learning in Action</h2>
+            </div>
+            <p>Snapshots from our community, workshops, and projects.</p>
+        </div>
+
+        {{#get "posts" filter="tag:gallery" include="feature_image" limit="8"}}
+            {{#if posts}}
+                <div class="image-grid">
+                    {{#foreach posts}}
+                        {{#if feature_image}}
+                            <article class="image-grid-item">
+                                <a class="image-grid-link" href="{{url}}" aria-label="{{title}}">
+                                    <img class="image-grid-img" src="{{feature_image}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" loading="lazy" />
+                                    <div class="image-grid-meta">
+                                        <span>{{title}}</span>
+                                    </div>
+                                </a>
+                            </article>
+                        {{/if}}
+                    {{/foreach}}
+                </div>
+            {{else}}
+                <p class="image-grid-empty">Add posts tagged with "gallery" to populate this section.</p>
+            {{/if}}
+        {{/get}}
+    </div>
+</section>
+
+
+{{!-- ==================== CONTACT ==================== --}}
+<section class="contact-section section" id="contact">
+    <div class="container">
+        <div class="section-header">
+            <span class="eyebrow">{{> "icons/mail"}} Get in Touch</span>
+            <h2>Contact Us</h2>
+            <p>Have questions? Reach out to us and we'll be happy to help.</p>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-info fade-in">
+                <h3>Let's Connect</h3>
+                <p class="lead-text">Whether you're a student, parent, or supporter — we'd love to hear from you. Reach out through any of the channels below.</p>
+
+                {{#if @custom.phone_number}}
+                <div class="contact-item">
+                    <div class="contact-item-icon">{{> "icons/phone"}}</div>
+                    <div>
+                        <h4>Phone</h4>
+                        <a href="tel:{{@custom.phone_number}}">{{@custom.phone_number}}</a>
+                    </div>
+                </div>
+                {{/if}}
+
+                {{#if @custom.email_address}}
+                <div class="contact-item">
+                    <div class="contact-item-icon">{{> "icons/mail"}}</div>
+                    <div>
+                        <h4>Email</h4>
+                        <a href="mailto:{{@custom.email_address}}">{{@custom.email_address}}</a>
+                    </div>
+                </div>
+                {{/if}}
+
+                {{#if @custom.address_text}}
+                <div class="contact-item">
+                    <div class="contact-item-icon">{{> "icons/map-pin"}}</div>
+                    <div>
+                        <h4>Address</h4>
+                        <p>{{@custom.address_text}}</p>
+                    </div>
+                </div>
+                {{/if}}
+
+                {{#if @custom.phone_number}}
+                <div class="contact-item">
+                    <div class="contact-item-icon">{{> "icons/message"}}</div>
+                    <div>
+                        <h4>WhatsApp</h4>
+                        <a href="https://wa.me/{{@custom.phone_number}}" target="_blank" rel="noopener">Chat with us on WhatsApp</a>
+                    </div>
+                </div>
+                {{/if}}
+            </div>
+
+            <div class="contact-map fade-in fade-in-d2">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.6!2d77.58!3d12.93!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU1JzQ4LjAiTiA3N8KwMzQnNDguMCJF!5e0!3m2!1sen!2sin!4v1600000000000" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Sankalp Learning Location">
+                </iframe>
+                <p style="margin-top:1rem; font-size:0.85rem; color:var(--color-text-light);">Jayanagar 8th Block, Bengaluru</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{{!-- ==================== CTA BANNER ==================== --}}
+<section class="section" style="padding-bottom:5rem;">
+    <div class="cta-banner fade-in">
+        <h2>Ready to Transform Your Future?</h2>
+        <p>Join {{#if @custom.students}}{{@custom.students}}+{{else}}6,00,000+{{/if}} students who have already succeeded with Sankalp Learning. Your success story starts here.</p>
+        <div>
+            {{#if @custom.phone_number}}
+                <a class="button button-accent" href="tel:{{@custom.phone_number}}">Call Now</a>
+            {{/if}}
+            {{#if @custom.phone_number}}
+                <a class="button button-light" href="https://wa.me/{{@custom.phone_number}}" target="_blank" rel="noopener" style="margin-left:0.5rem;">WhatsApp</a>
+            {{/if}}
+        </div>
+    </div>
+</section>
+
+
+{{!-- ==================== WHATSAPP BUBBLE ==================== --}}
+{{#if @custom.phone_number}}
+<a class="wa-bubble" href="https://wa.me/{{@custom.phone_number}}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <img alt="Chat on WhatsApp" src="{{asset "images/WhatsAppButtonGreenLarge.svg"}}" />
+</a>
+{{/if}}

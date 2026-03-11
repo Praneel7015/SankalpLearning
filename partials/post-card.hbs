@@ -1,0 +1,31 @@
+{{!-- Post card partial used by {{#foreach}} loops --}}
+<article class="post-card fade-in{{#has index="1"}} fade-in-d1{{/has}}{{#has index="2"}} fade-in-d2{{/has}}">
+    <a href="{{url}}">
+        {{#if feature_image}}
+            <img src="{{feature_image}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" loading="lazy">
+        {{/if}}
+        <div class="post-card-content">
+            <div class="post-card-tags">
+                {{#primary_tag}}
+                    <span class="post-card-primary-tag">{{name}}</span>
+                {{/primary_tag}}
+                {{#if featured}}
+                    <span class="post-card-featured">{{> "icons/fire"}} Featured</span>
+                {{/if}}
+            </div>
+            <h3>{{title}}</h3>
+            {{#if excerpt}}
+                <p class="post-card-excerpt">{{excerpt words="25"}}</p>
+            {{/if}}
+            <div class="post-card-meta">
+                {{#foreach authors}}
+                    <span class="post-card-author">{{name}}</span>
+                {{/foreach}}
+                <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMM YYYY"}}</time>
+                {{#if reading_time}}
+                    <span class="post-card-reading-time"><span class="bull">&bull;</span> {{reading_time}}</span>
+                {{/if}}
+            </div>
+        </div>
+    </a>
+</article>

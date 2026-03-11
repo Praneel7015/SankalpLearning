@@ -1,0 +1,28 @@
+<header class="site-header" role="banner">
+    <div class="container header-main">
+        <a class="logo" href="{{@site.url}}" aria-label="{{@site.title}} - Home">
+            {{#if @site.logo}}
+                <img src="{{@site.logo}}" alt="{{@site.title}}">
+            {{/if}}
+            <span class="logo-text">
+                Sankalp
+                <small>Learning</small>
+            </span>
+        </a>
+        <nav class="site-nav" id="site-nav" aria-label="Main Navigation">
+            {{navigation}}
+        </nav>
+        <div class="header-cta">
+            {{#if @custom.phone_number}}
+                <a class="button button-primary" href="tel:{{@custom.phone_number}}" aria-label="Call us">
+                    Call Us
+                </a>
+            {{/if}}
+        </div>
+        <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
