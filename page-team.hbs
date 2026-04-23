@@ -69,6 +69,58 @@
 {{/get}}
 
 
+{{!-- ==================== FOUNDER (dynamic) ==================== --}}
+{{#get "posts" filter="tag:directors" include="tags" limit="all" as |directors|}}
+{{#if directors}}
+<section class="section pg-team-founder-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="eyebrow">{{> "icons/rocket"}} Board of Directors</span>
+            <h2>Board of Directors</h2>
+            <p>Supporting Sankalps Mission.</p>
+        </div>
+
+        {{#foreach directors}}
+        <div class="pg-team-founder fade-in">
+            <div class="pg-team-founder-avatar">
+                {{#if feature_image}}
+                    <img src="{{feature_image}}" alt="{{title}}" />
+                {{else}}
+                    {{> "icons/avatar"}}
+                {{/if}}
+            </div>
+            <div class="pg-team-founder-info">
+                {{#has tag="directors"}}
+                    <span class="pg-team-role-tag tag-gold">Director</span>
+                {{/has}}
+                <h2>{{title}}</h2>
+                {{#if custom_excerpt}}
+                    <p>{{custom_excerpt}}</p>
+                {{else}}
+                    <p>{{excerpt words="50"}}</p>
+                {{/if}}
+                <div class="pg-team-founder-stats">
+                    <div class="pg-team-founder-stat">
+                        <span class="num">25+</span>
+                        <span class="lbl">Years Leading</span>
+                    </div>
+                    <div class="pg-team-founder-stat">
+                        <span class="num">{{#if @custom.students}}{{@custom.students}}+{{else}}6,00,000+{{/if}}</span>
+                        <span class="lbl">Students Impacted</span>
+                    </div>
+                    <div class="pg-team-founder-stat">
+                        <span class="num">5+</span>
+                        <span class="lbl">Years Together</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/foreach}}
+    </div>
+</section>
+{{/if}}
+{{/get}}
+
 {{!-- ==================== LEADERSHIP (dynamic) ==================== --}}
 {{#get "posts" filter="tag:academic-head,tag:academic-advisor" include="tags" limit="all" as |leaders|}}
 {{#if leaders}}
