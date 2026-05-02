@@ -1,0 +1,344 @@
+
+<style>
+.sk-wrap {
+  font-family: "DM Sans","Segoe UI",sans-serif;
+  width: 100%;
+  padding: 2rem 2rem 3rem;
+  color: #3A4A6B;
+  box-sizing: border-box;
+}
+.sk-hero {
+  background: linear-gradient(160deg,#0d2137 0%,#1B2A4A 60%,#065a5c 100%);
+  border-radius: 28px;
+  padding: 3.5rem 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.sk-hero::before {
+  content:"";position:absolute;top:-40%;right:-10%;width:320px;height:320px;border-radius:50%;border:1px solid rgba(255,255,255,0.05);pointer-events:none;
+}
+.sk-hero::after {
+  content:"";position:absolute;bottom:-30%;left:-5%;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(11,138,141,0.15) 0%,transparent 70%);pointer-events:none;
+}
+.sk-book {
+  flex-shrink: 0;
+  width: 190px;
+  position:relative;
+  z-index:2;
+}
+.sk-book-cover {
+  width: 190px;
+  height: 255px;
+  background: linear-gradient(160deg,#b8975a 0%,#8a6a30 60%,#6b4f1e 100%);
+  border-radius: 4px 12px 12px 4px;
+  box-shadow: -6px 6px 24px rgba(0,0,0,0.55), inset -4px 0 8px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.sk-book-cover::before {
+  content:"";position:absolute;left:0;top:0;bottom:0;width:14px;
+  background: linear-gradient(90deg,rgba(0,0,0,0.3) 0%,rgba(255,255,255,0.05) 60%,transparent 100%);
+}
+.sk-book-spine {
+  width: 14px;
+  height: 255px;
+  background: linear-gradient(90deg,#6b4f1e,#8a6a30);
+  border-radius:4px 0 0 4px;
+  position:absolute;
+  left:-14px;
+  top:0;
+}
+.sk-book-title {
+  font-family:"Outfit","Trebuchet MS",sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #fff8ee;
+  line-height: 1.3;
+  margin-bottom: 0.6rem;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+.sk-book-line {
+  width: 60%;
+  height: 1px;
+  background: rgba(255,255,255,0.3);
+  margin: 0.35rem auto;
+}
+.sk-book-sub {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.4;
+}
+.sk-book-icon {
+  width: 44px;
+  height: 44px;
+  margin: 0.6rem auto 0;
+  opacity: 0.6;
+}
+.sk-hero-text {
+  position:relative;
+  z-index:2;
+  max-width: 620px;
+  width: 100%;
+}
+.sk-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  background: rgba(11,138,141,0.25);
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+  margin-bottom: 0.9rem;
+}
+.sk-hero-title {
+  font-family:"Outfit","Trebuchet MS",sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+.sk-hero-title em {
+  font-style: normal;
+  color: #F5A623;
+}
+.sk-hero-author {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 1.1rem;
+}
+.sk-hero-author strong {
+  color: rgba(255,255,255,0.8);
+}
+.sk-hero-desc {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.8;
+  margin-bottom: 1.4rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.sk-meta-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.6rem;
+  justify-content: center;
+}
+.sk-meta-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+}
+.sk-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family:"Outfit","Trebuchet MS",sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 1rem 2.2rem;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg,#F5A623,#D4891A);
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(245,166,35,0.35);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.sk-download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(245,166,35,0.45);
+}
+.sk-download-btn svg {
+  width: 22px;
+  height: 22px;
+  stroke: #fff;
+  flex-shrink: 0;
+}
+.sk-count-row {
+  margin-top: 0.85rem;
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.sk-count-badge {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 9999px;
+  padding: 0.25rem 0.85rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.9);
+}
+.sk-chapters {
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 22px;
+  padding: 1.5rem 1.75rem;
+  box-shadow: 0 2px 8px rgba(11,138,141,0.06);
+  max-width: 900px;
+  margin: 0 auto;
+}
+.sk-chapters-title {
+  font-family:"Outfit","Trebuchet MS",sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #0B8A8D;
+  margin-bottom: 1.25rem;
+}
+.sk-chapter-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem 2rem;
+}
+.sk-chapter-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.97rem;
+  color: #3A4A6B;
+  line-height: 1.45;
+}
+.sk-ch-num {
+  font-family:"Outfit","Trebuchet MS",sans-serif;
+  font-weight: 800;
+  font-size: 0.82rem;
+  color: #0B8A8D;
+  opacity: 0.5;
+  min-width: 22px;
+  padding-top: 2px;
+}
+@media (max-width: 520px) {
+  .sk-hero { padding: 2.5rem 1.25rem 2rem; }
+  .sk-hero-desc { max-width: 100%; }
+  .sk-chapter-list { grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="sk-wrap">
+  <div class="sk-hero">
+    <div class="sk-book">
+      <div class="sk-book-cover">
+        <div class="sk-book-spine"></div>
+        <div class="sk-book-title">"Three in the Morning"</div>
+        <div class="sk-book-line"></div>
+        <div class="sk-book-sub">A narrative of Service personified</div>
+        <div class="sk-book-sub" style="margin-top:0.4rem;opacity:0.8;">Shree S Jayaraman</div>
+        <svg class="sk-book-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+      </div>
+    </div>
+    <div class="sk-hero-text">
+      <div class="sk-eyebrow">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+        Free eBook
+      </div>
+      <div class="sk-hero-title">"Three in the<br><em>Morning"</em></div>
+      <div class="sk-hero-author">A Biography of <strong>Shree S Jayaraman</strong> &nbsp;·&nbsp; by Pooja Patil Joshi</div>
+      <div class="sk-hero-desc">A life of service does not begin with grand intent. It begins with attention — noticing where systems fail, where dignity is strained, where effort can reduce difficulty.</div>
+      <div class="sk-meta-row">
+        <span class="sk-meta-chip">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="4" rx="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+          12 Chapters
+        </span>
+        <span class="sk-meta-chip">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          PDF Format
+        </span>
+        <span class="sk-meta-chip">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Free to Download
+        </span>
+      </div>
+      <a id="dlBtn" class="sk-download-btn" href="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/>
+        </svg>
+        Download Free eBook
+      </a>
+      <div class="sk-count-row">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span id="dlCount" class="sk-count-badge">—</span>
+        <span>downloads and counting</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sk-chapters">
+    <div class="sk-chapters-title">What's inside</div>
+    <div class="sk-chapter-list">
+      <div class="sk-chapter-item"><span class="sk-ch-num">01</span><span>Roots of an Inherited Intelligence</span></div>
+      <div class="sk-chapter-item"><span class="sk-ch-num">07</span><span>Ideas That Become Institutions</span></div>
+      <div class="sk-chapter-item"><span class="sk-ch-num">02</span><span>When Comfort Meets Conscience</span></div>
+      <div class="sk-chapter-item"><span class="sk-ch-num">08</span><span>Staying Light While Carrying Much</span></div>
+      <div class="sk-chapter-item"><span class="sk-ch-num">03</span><span>Learning the Currency of Relationships</span></div>
+      <div class="sk-chapter-item"><span class="sk-ch-num">09</span><span>The Long Arc of Commitment</span></div>
+      <div class="sk-chapter-item"><span class="sk-ch-num">04</span><span>When Good Intentions Fail Without Systems</span></div>
+      <div class="sk-chapter-item"><span class="sk-ch-num">10</span><span>Impact Without Arithmetic</span></div>
+      <div class="sk-chapter-item"><span class="sk-ch-num">05</span><span>Choosing Difficult Problems Over Easy Praise</span></div>
+      <div class="sk-chapter-item"><span class="sk-ch-num">11</span><span>A Life That Begins at 3 am</span></div>
+      <div class="sk-chapter-item"><span class="sk-ch-num">06</span><span>When Opportunity Knocks, You Open the Door</span></div>
+      <div class="sk-chapter-item"><span class="sk-ch-num">12</span><span>The Quiet Agreement</span></div>
+    </div>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<script>
+const cfg = {
+  apiKey: "AIzaSyAkZ4XZF2y0cFt7N5Zkk5fAh0yhmz7XnLs",
+  authDomain: "sankalplearningbook.firebaseapp.com",
+  databaseURL: "https://sankalplearningbook-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "sankalplearningbook",
+  storageBucket: "sankalplearningbook.firebasestorage.app",
+  messagingSenderId: "999852396775",
+  appId: "1:999852396775:web:79a2d0cceaae59814c1242"
+};
+try {
+  if (!firebase.apps.length) firebase.initializeApp(cfg);
+  const db = firebase.database();
+  const ref = db.ref('pdfDownloads/count');
+  ref.on('value', snap => {
+    const n = snap.val() || 0;
+    document.getElementById('dlCount').textContent = n.toLocaleString('en-IN');
+  });
+  document.getElementById('dlBtn').addEventListener('click', e => {
+    e.preventDefault();
+    ref.transaction(c => (c || 0) + 1);
+    window.location.href = "https://www.sankalplearning.com/content/files/2026/04/Three-in-the-Morning.pdf";
+  });
+} catch(err) {
+  document.getElementById('dlCount').textContent = '—';
+  document.getElementById('dlBtn').href = "https://www.sankalplearning.com/content/files/2026/04/Three-in-the-Morning.pdf";
+}
+</script>
